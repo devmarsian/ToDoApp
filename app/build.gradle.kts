@@ -60,7 +60,7 @@ dependencies {
     kapt ("androidx.room:room-compiler:2.6.1")
     kapt ("com.github.moxy-community:moxy-compiler:2.2.2")
     implementation ("com.github.moxy-community:moxy-androidx:2.2.2")
-    implementation ("io.insert-koin:koin-android:3.4.3")
-//    implementation ("com.google.dagger:dagger:2.28.3")
-//    kapt ("com.google.dagger:dagger-compiler:2.28.3")
+//    implementation ("io.insert-koin:koin-android:3.4.3")
+    implementation ("com.google.dagger:dagger:2.28.3")
+    kapt ("com.google.dagger:dagger-compiler:2.28.3")
 }
