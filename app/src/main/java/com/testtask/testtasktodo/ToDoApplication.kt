@@ -2,19 +2,20 @@ package com.testtask.testtasktodo
 
 import android.app.Application
 import com.testtask.testtasktodo.di.AppComponent
-import com.testtask.testtasktodo.di.DatabaseModule
-import com.testtask.testtasktodo.di.databaseModule
-import com.testtask.testtasktodo.di.viewModelModule
-import org.koin.android.ext.koin.androidContext
-import org.koin.core.context.startKoin
+import com.testtask.testtasktodo.di.AppModule
+import com.testtask.testtasktodo.di.DaggerAppComponent
 
-class ToDoApplication: Application(){
-    lateinit var appComponent: AppComponent
+
+class ToDoApplication : Application() {
+
+    private lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerAppComponent.builder()
-            .databaseModule(DatabaseModule())
-            .build()
+        appComponent = DaggerAppComponent.builder().appModule(AppModule(this@ToDoApplication)).build()
+    }
+
+    fun getAppComponentSynthetic(): AppComponent {
+        return appComponent
     }
 }

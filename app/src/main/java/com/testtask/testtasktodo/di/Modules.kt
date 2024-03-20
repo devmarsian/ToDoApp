@@ -1,12 +1,8 @@
 package com.testtask.testtasktodo.di
 
 import android.app.Application
-import androidx.lifecycle.ViewModel
 import com.testtask.testtasktodo.model.TodoDao
 import com.testtask.testtasktodo.model.TodoDatabase
-import com.testtask.testtasktodo.viewmodel.EditViewModel
-import com.testtask.testtasktodo.viewmodel.MainViewModel
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -14,7 +10,6 @@ import javax.inject.Singleton
 
 @Module
 class DatabaseModule {
-
     @Singleton
     @Provides
     fun provideDatabase(application: Application): TodoDatabase {
@@ -28,13 +23,12 @@ class DatabaseModule {
     }
 }
 
-
 @Module
-abstract class ViewModelModule {
-
-    @Binds
-    abstract fun bindMainViewModel(viewModel: MainViewModel): ViewModel
-
-    @Binds
-    abstract fun bindEditViewModel(viewModel: EditViewModel): ViewModel
+class AppModule(private val application: Application) {
+    @Provides
+    @Singleton
+    fun provideApplication(): Application {
+        return application
+    }
 }
+

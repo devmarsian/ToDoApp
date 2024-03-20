@@ -5,8 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "todonotes")
 data class TodoNote(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     val id: Long = 0,
     val description: String,
-    var isCompleted: Boolean
+    var isCompleted: Boolean,
+    var isNotificationSet: Boolean
 )

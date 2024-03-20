@@ -29,13 +29,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     kapt {
+
         correctErrorTypes = true
         useBuildCache = true
     }
@@ -60,7 +61,21 @@ dependencies {
     kapt ("androidx.room:room-compiler:2.6.1")
     kapt ("com.github.moxy-community:moxy-compiler:2.2.2")
     implementation ("com.github.moxy-community:moxy-androidx:2.2.2")
-//    implementation ("io.insert-koin:koin-android:3.4.3")
-    implementation ("com.google.dagger:dagger:2.28.3")
-    kapt ("com.google.dagger:dagger-compiler:2.28.3")
+    implementation ("io.insert-koin:koin-android:3.4.3")
+    implementation ("com.google.dagger:dagger:2.48.1")
+    kapt ("com.google.dagger:dagger-compiler:2.48.1")
+    implementation ("com.google.dagger:dagger-android:2.11")
+    implementation ("com.google.dagger:dagger-android-support:2.11")
+    implementation ("javax.inject:javax.inject:1")
+    compileOnly ("javax.annotation:jsr250-api:1.0")
+//    implementation("com.android.tools.build:gradle:7.0.4")
+//    implementation("com.android.tools.build:gradle-api:7.0.4")
+//    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.22")
+//    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10") not needed and cause exceptions upon build
+    implementation("com.squareup:javapoet:1.13.0")
+    implementation ("io.reactivex.rxjava3:rxandroid:3.0.2")
+    implementation ("io.reactivex.rxjava3:rxjava:3.1.5")
+    implementation ("androidx.room:room-rxjava3:2.6.1")
+
+
 }
